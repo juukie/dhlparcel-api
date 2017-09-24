@@ -4,7 +4,7 @@ More details about the DHLParcel's API can be found on [api-gw.dhlparcel.nl/docs
 
 *Project is still in development!*
 
-##Todo:
+## Todo:
 - Implement JSON Mapper to map the API response to a plain object.
 - Implement more methods.
 - Implement Authentication?
