@@ -1,0 +1,20 @@
+{
+    "name": "juukie/dhlparcel-api",
+    "description": "Wrapper around DHL Parcel's API",
+    "keywords": ["DHL", "Parcel", "API"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Juukie",
+            "email": "juukie@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DHLParcel\\API\\": "src/"
+        }
+    }
+}
