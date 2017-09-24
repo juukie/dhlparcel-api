@@ -4,6 +4,8 @@ namespace DHLParcel\API\HttpClient;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ParseException;
+use GuzzleHttp\Exception\RequestException;
 
 class HttpClient implements HttpClientInterface
 {
@@ -45,9 +47,15 @@ class HttpClient implements HttpClientInterface
      */
     public function get($path, $query = [])
     {
-        $response = $this->client->get($path, [
-            'query' => $query,
-        ]);
+        try {
+            $response = $this->client->get($path, ['query' => $query]);
+        } catch (ParseException $e) {
+            throw new InvalidResponseException("Cannot parse message: " . $e->getResponse()->getBody(), $e->getCode());
+        } catch (RequestException $e) {
+            throw new InvalidResponseException("Cannot finish request: " . $e->getMessage() . ', Request:' . $e->getRequest(), $e->getCode());
+        } catch (\Exception $e) {
+            throw new InvalidResponseException($e->getMessage(), $e->getCode());
+        }
 
         return json_decode($response->getBody());
     }
