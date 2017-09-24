@@ -15,7 +15,7 @@ class HttpClient implements HttpClientInterface
      * @var array
      */
     protected $options = [
-        'base_url' => 'https://api-gw.dhlparcel.nl/',
+        'base_uri' => 'https://api-gw.dhlparcel.nl/',
         'defaults' => [
             'timeout' => 30,
             'headers' => [
