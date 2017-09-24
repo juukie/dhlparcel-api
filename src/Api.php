@@ -17,4 +17,16 @@ class Api
     {
         $this->client = $client ?: new HttpClient();
     }
+
+    /**
+     * Find Parcel Shop Locations
+     *
+     * @param string $countryCode
+     * @param array  $query
+     * @return array|mixed
+     */
+    public function findParcelShopLocations($countryCode = 'NL', $query = [])
+    {
+        return $this->client->get("parcel-shop-locations/{$countryCode}", $query);
+    }
 }
