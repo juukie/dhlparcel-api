@@ -19,7 +19,7 @@ class Api
     }
 
     /**
-     * Find Parcel Shop Locations
+     * Find Parcel Shop Locations.
      *
      * @param string $countryCode
      * @param array  $query
@@ -28,5 +28,17 @@ class Api
     public function findParcelShopLocations($countryCode = 'NL', $query = [])
     {
         return $this->client->get("parcel-shop-locations/{$countryCode}", $query);
+    }
+
+    /**
+     * Find Parcel Shop by given id.
+     *
+     * @param string $countryCode
+     * @param array  $query
+     * @return array|mixed
+     */
+    public function findParcelShopById($countryCode = 'NL', $id)
+    {
+        return $this->client->get("parcel-shop-locations/{$countryCode}/{$id}");
     }
 }
