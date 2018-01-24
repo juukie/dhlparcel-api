@@ -53,7 +53,7 @@ class HttpClient implements HttpClientInterface
         } catch (ParseException $e) {
             throw new InvalidResponseException("Cannot parse message: " . $e->getResponse()->getBody(), $e->getCode());
         } catch (RequestException $e) {
-            throw new InvalidResponseException("Cannot finish request: " . $e->getMessage() . ', Request:' . $e->getRequest(), $e->getCode());
+            throw new InvalidResponseException("Cannot finish request: " . $e->getMessage() . ', Request:' . $e->getRequest()->getUri(), $e->getCode());
         } catch (\Exception $e) {
             throw new InvalidResponseException($e->getMessage(), $e->getCode());
         }
