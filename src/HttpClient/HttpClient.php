@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ParseException;
 use GuzzleHttp\Exception\RequestException;
+use Exception\InvalidResponseException;
 
 class HttpClient implements HttpClientInterface
 {
